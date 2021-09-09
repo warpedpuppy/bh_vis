@@ -6,8 +6,9 @@ export class MainView extends React.Component {
     constructor(){
         super();
         this.state = {
-            movies: [ ]
-        }
+            movies: [ ],
+            selectedMovie: null
+        };
     }
     
     render() {
