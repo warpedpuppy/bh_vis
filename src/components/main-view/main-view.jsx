@@ -2,13 +2,24 @@ import React from 'react';
 
 export class MainView extends React.Component {
 
+    constructor(){
+        super();
+        this.state = {
+            movies: [ ]
+        }
+    }
+    
     render() {
-        return (
+        
+            const { movies } = this.state;
+
+            if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+
+              return (
             <div className="main-view">
-                <div>Inception</div>
-                <div>The Shawshank Redemption</div>
-                <div>Gladiator</div>
+                {movies.map((movie) => <div key={movie._id}>{movie.Title}</div>}
             </div>
         );
+        
     }
 }
