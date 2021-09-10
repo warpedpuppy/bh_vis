@@ -11,6 +11,12 @@ export class MainView extends React.Component {
             selectedMovie: null
         };
     }
+
+    setSelectedMovie(newSelectedMovie) {
+        this.setState({
+            selectedMovie: newSelectedMovie
+        });
+    }
     
     render() {
         
