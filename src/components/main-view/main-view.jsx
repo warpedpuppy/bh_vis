@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -7,32 +9,21 @@ export class MainView extends React.Component {
     constructor(){
         super();
         this.state = {
-            movies: [
-                {
-                     _id: 1,
-                    Title: "The Last Dance",
-                    ImagePath: "https://en.wikipedia.org/wiki/File:The_Last_Dance_2020.jpg",
-                    Genre: "Documentary",
-                    Description: "is a non-fiction movie that documents reality for education."
-                },
-                {
-                    _id: 2,
-                    Title: "Training Day",
-                    ImagePath: "https://upload.wikimedia.org/wikipedia/en/b/b3/Training_Day_Poster.jpg",
-                    Genre: "Crime thriller focuses on exciting elements of crimes.",
-                    Description: "Police drama about a veteran cop who escorts a rookie cop on his first day with the LAPD tough inner city narcotics unit.",
-                },
-                {
-                    _id: 3,
-                    Title: "Equalizer",
-                    ImagePath: "https://en.wikipedia.org/wiki/Nomadland_(film)#/media/File:Nomadland_poster.jpeg",
-                    Genre: "Action an exciting fast pace film with special effects.",
-                    Description: "a man with mysterious origin tries to put his past behind him and live a quiet new life.",
-                }
-
-            ],
+            movies: [],
             selectedMovie: null
-        };
+        }
+    }
+
+    componentDidMount(){
+        axios.get('https://stormy-taiga-55813.herokuapp.com/movies')
+        .then(response => {
+            this.setState({
+                movies: response.data
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     setSelectedMovie(newSelectedMovie) {
@@ -40,6 +31,7 @@ export class MainView extends React.Component {
             selectedMovie: newSelectedMovie
         });
     }
+
     
     render() {
         
