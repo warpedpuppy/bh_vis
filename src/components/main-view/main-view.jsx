@@ -47,6 +47,21 @@ export class MainView extends React.Component {
         this.getMovies(authData.token);
     }
 
+    getMovies(token) {
+        axios.get('https://stormy-taiga-55813.herokuapp.com/movies', {
+            headers: { Authorization: 'Bearer ${token}'}
+        })
+        .then(response => {
+            //assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
     
     render() {
         
