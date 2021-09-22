@@ -22905,7 +22905,7 @@ class MainView extends _reactDefault.default.Component {
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/movies/:movieId",
                         render: ({ match  })=>{
-                            return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                            if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                 md: 8,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
                                     movie: movies.find((m)=>m._id === match.params.movieId
