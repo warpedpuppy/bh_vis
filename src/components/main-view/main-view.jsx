@@ -68,6 +68,14 @@ export class MainView extends React.Component {
             console.log(error);
         });
     }
+
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
     
     
     render() {
@@ -95,6 +103,7 @@ export class MainView extends React.Component {
                 (movie) => { this.setSelectedMovie(movie) }}/>
                   ))
                 }  
+                <button onClick={() => { this.onLoggedOut()}}>Logout</button>
             </div>
         );
         
