@@ -22839,15 +22839,7 @@ class MainView extends _reactDefault.default.Component {
         const { movies , selectedMovie , user  } = this.state;
         //if (selectedMovie) return <MovieView movie={selectedMovie} />;
         // if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 93
-            },
-            __self: this,
-            children: "The list is empty!"
-        }));
+        // if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
         return(//<div className="main-view">
         //  {selectedMovie
         //  ? (
@@ -22874,6 +22866,9 @@ class MainView extends _reactDefault.default.Component {
                                     onLoggedIn: (user1)=>this.onLoggedIn(user1)
                                 })
                             }));
+                            if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                className: "main-view"
+                            }));
                             return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 3,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22898,7 +22893,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 111
+                            lineNumber: 112
                         },
                         __self: this
                     }),
@@ -22915,7 +22910,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 116
+                            lineNumber: 117
                         },
                         __self: this
                     })
