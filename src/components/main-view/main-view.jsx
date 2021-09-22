@@ -61,13 +61,13 @@ export class MainView extends React.Component {
             console.log(error);
         });
     }
-    mongodb+srv://test_user:test_user@cluster0.pzp56.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+    
     
     render() {
         
             const { movies, selectedMovie,  user } = this.state;
 
-            if (selectedMovie) return <MovieView movie={selectedMovie} />;
+            //if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
             if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
