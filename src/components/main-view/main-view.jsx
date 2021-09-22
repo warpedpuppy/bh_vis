@@ -49,7 +49,7 @@ export class MainView extends React.Component {
 
     getMovies(token) {
         axios.get('https://stormy-taiga-55813.herokuapp.com/movies', {
-            headers: { Authorization: 'Bearer ${token}'}
+            headers: { Authorization: `Bearer ${token}`}
         })
         .then(response => {
             //assign the result to the state
@@ -61,11 +61,11 @@ export class MainView extends React.Component {
             console.log(error);
         });
     }
-
+    mongodb+srv://test_user:test_user@cluster0.pzp56.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
     
     render() {
         
-            const { movies, selectedMovie } = this.state;
+            const { movies, selectedMovie,  user } = this.state;
 
             if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
