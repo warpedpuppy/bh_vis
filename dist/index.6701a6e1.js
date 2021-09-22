@@ -22838,15 +22838,7 @@ class MainView extends _reactDefault.default.Component {
     render() {
         const { movies , selectedMovie , user  } = this.state;
         //if (selectedMovie) return <MovieView movie={selectedMovie} />;
-        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-            onLoggedIn: (user1)=>this.onLoggedIn(user1)
-            ,
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 91
-            },
-            __self: this
-        }));
+        // if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
         if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
@@ -22877,6 +22869,11 @@ class MainView extends _reactDefault.default.Component {
                         exact: true,
                         path: "/",
                         render: ()=>{
+                            if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                })
+                            }));
                             return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 3,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22888,6 +22885,20 @@ class MainView extends _reactDefault.default.Component {
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 101
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                        path: "/register",
+                        render: ()=>{
+                            return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
+                                })
+                            }));
+                        },
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 111
                         },
                         __self: this
                     }),
@@ -22904,7 +22915,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 108
+                            lineNumber: 116
                         },
                         __self: this
                     })
@@ -29368,8 +29379,24 @@ class MovieView extends _reactDefault.default.Component {
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"9Daen","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jSUIW"}],"aP2YV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+_axiosDefault.default.post('https://stormy-taiga-55813.herokuapp.com/', {
+    Username: username,
+    Password: password,
+    Email: email,
+    Birthday: birthday
+}).then((response)=>{
+    const data = response.data;
+    console.log(data);
+    window.open('/', '_self');
+// so the page will open in the current tab
+}).catch((e)=>{
+    console.log('error registering the user');
+});
 
-},{}],"2PRIq":[function(require,module,exports) {
+},{"axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"9Daen"}],"2PRIq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
