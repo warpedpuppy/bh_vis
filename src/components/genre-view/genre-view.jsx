@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 
 export class GenreView extends React.Component {
