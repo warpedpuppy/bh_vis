@@ -11,8 +11,9 @@ import MoviesList from '../movies-list/movies-list';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import  RegistrationView  from '../registration-view/registration-view';
-
+import  { RegistrationView }  from '../registration-view/registration-view';
+import { DirectorView } from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -82,7 +83,7 @@ export class MainView extends React.Component {
         
             //const { movies, selectedMovie,  user } = this.state;
 
-            let { movie } = this.props;
+            let { movies } = this.props;
             let { user } = this.state;
             //if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
