@@ -97,3 +97,5 @@ return (
         </span>
     </Form>
    );
+
+   export default RegistrationView;
